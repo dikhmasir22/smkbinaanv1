@@ -1,0 +1,550 @@
+/* 
+PENTIUM GOLD PROJECT 
+- DAVA IKHSAN ALMASIR
+- ALFASO RAHAKBAUW
+- ASTRID
+- IBRAHIM AGUS
+
+&copy; 2024 PENTIUM GOLD GROUP - ALL RIGHTS RESERVED
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ================= ROOT CLASS ======================*/
+.swiper-pagination {
+    position: relative;
+    margin-top: 3rem !important;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    /* Lebih tinggi dari modal */
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* Ensure the overlay does not block clicks */
+}
+
+.image-container:hover::before {
+    opacity: 1;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .delete-icon {
+    display: block;
+    opacity: 1;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #ededed;
+}
+
+/* link */
+
+.garis-none {
+    text-decoration: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.l-none {
+    list-style: none;
+}
+
+/* link */
+
+.gelembung {
+    transition: all .20s ease;
+}
+
+.gelembung:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+.aktif {
+    box-shadow: 0 0 15px #00abf0;
+}
+
+.fs-kecil {
+    font-size: 12px;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    font-family: "Nunito", sans-serif;
+    color: #081b29;
+    font-weight: 600;
+}
+
+.input-group-text {
+    min-width: 40%;
+}
+
+.hr-dashed {
+    border: none;
+    border-top: 4px dashed black;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.kotak-modal {
+    min-height: 70vh;
+}
+
+.transisi {
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.transisi.tampil {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.gambar-fit {
+    max-width: 100%;
+    min-height: 220px;
+    max-height: 220px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#topbut {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =================== ROOT END ======================*/
+
+.navigation .row .col-lg-6 ul {
+    display: flex;
+}
+
+.navigation .row .col-lg-6 ul li {
+    margin: 10px;
+}
+
+/* ==== NAVBAR ====*/
+
+.navbar {
+    z-index: 999;
+}
+
+.togglesidebtn {
+    margin: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.togglesidebtn:hover {
+    box-shadow: 0 0 3px #00abf0;
+}
+
+.kotak-daftar {
+    max-width: 90%;
+}
+
+/* === NAVBAR === */
+
+
+
+/* === SIDEBAR === */
+#sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    z-index: 996;
+    background: #ededed;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.nav-sidelink {
+    min-width: 150px;
+    max-width: 200px;
+    background: transparent;
+    border: 1px solid #00abf0;
+    padding: 10px;
+    margin-top: 2rem;
+    color: #081b29;
+    transition: all .10s ease-in-out;
+}
+
+.nav-sidelink:hover {
+    border: 2px solid #00abf0;
+}
+
+.p-7 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.span-navbar {
+    font-size: 16px;
+}
+
+/* === MAIN ====  */
+
+#main {
+    margin-top: 80px;
+    padding: 20px 30px;
+    transition: all 0.3s;
+    max-width: calc(100% - 300px);
+    transition: all .90s ease;
+}
+
+@media (min-width: 1200px) {
+
+    #main {
+        margin-left: 280px;
+    }
+
+    #main.toggleside {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1199px) {
+
+    .togglesidebtn {
+        margin: 0;
+    }
+
+    #main {
+        margin: 10px 0 0 10px;
+        max-width: 100%;
+        margin-top: 130px;
+        padding: 30px 30px;
+        transition: all 0.3s;
+    }
+
+    #sidebar {
+        display: none;
+        top: 100px;
+    }
+
+    .kotak-daftar {
+        max-width: 100%;
+    }
+}
+
+/* === Main === */
+
+/* === Program === */
+.carousel-image {
+    height: 500px;
+    object-fit: cover;
+}
+
+#programonline {
+    background-image: url('../../static/image/backgroundprogram.jpg');
+    background-size: cover;
+}
+
+/* hero section pada laman program */
+@media (max-width: 576px) {
+    #home h3 {
+        font-size: 1.3rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    #home .btn {
+        width: 80%;
+    }
+}
+
+/* Section siapa saja yang bisa gabung */
+.internship-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.internship-card .card-body {
+    flex: 1;
+}
+
+/* Section siapa saja yang bisa gabung */
+
+/* === Program === */
+
+
+/* === Materi === */
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.konten {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.konten-utama {
+    flex: 1;
+    display: flex;
+    margin: 0 -10px;
+}
+
+.kontainer-video,
+.kontainer-deskripsi {
+    padding: 10px;
+}
+
+.kontainer-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    height: 430px;
+}
+
+.kontainer-deskripsi {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    flex: 1;
+}
+
+.embed-responsive {
+    width: 100%;
+    height: 100%;
+}
+
+.embed-responsive-item {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-navigation {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* kelas terunggul */
+.kelas-unggulan .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.kelas-unggulan .card:hover {
+    transform: translateY(-5px);
+}
+
+.kelas-unggulan .slide-title {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.kelas-unggulan .text-secondary {
+    color: #6c757d !important;
+}
+
+@media (max-width: 767.98px) {
+    .kelas-unggulan .card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .kelas-unggulan .row>div {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .kelas-unggulan .row>div {
+        padding: 20px;
+    }
+}
+
+/* === Semua Kelas === */
+.img-kontainer {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.img-kontainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.semuakelas-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.lihat-kelas {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    font-size: 10px;
+    border-radius: 5px;
+    transition: all .20s ease;
+}
+
+.lihat-kelas:hover {
+    right: -5px;
+}
+
+/* laman materi */
+.circular-progress {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: conic-gradient(var(--progress-color) calc(var(--progress) * 1%), #ddd 0);
+    border-radius: 50%;
+}
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    background: white;
+    border-radius: 50%;
+}
+
+.circular-progress span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* === Profile === */
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.profile-image {
+    width: 200px;
+    flex: 0 0 auto;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.profile-description {
+    flex: 1 1 300px;
+}
+
+.profile-box {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-description p {
+    margin: 0;
+}
+
+@media (max-width: 991.98px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-image {
+        margin: 0 0 15px 0;
+    }
+}
+
+/* === Profile === */
